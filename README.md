@@ -5,5 +5,5 @@ Day #1  Date: 14/6/2025
 
 -Created GitHub Repository
 -Created a devoloper branch to be used for testing and practiced commands to do so,
-now I have to branches (main, dev).
+now I have two branches (main, dev).
 
