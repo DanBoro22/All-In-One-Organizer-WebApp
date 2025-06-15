@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang = "en">
+
+<!-- The is being used to control how the page behaves, looks, and/or loads, not the actual visible content-->
 <head>
+
     <!-- UTF-8 is the character encoding -->
     <meta charset="UTF-8">
 
@@ -9,6 +12,24 @@
     to be set to 100% by default  -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- This is the tab at the top of the page-->
     <title>Organizer App</title>
+
+    <!-- This is establishing a "relationship" aka "rel" between the HTML file and the linked file,
+     which in this case is a stylesheet (the CSS file) -->
+     <link rel="stylesheet" href="style.css">
+
 </head>
+
+<!-- Main content area which is visible to the user -->
+ <body>
+    <h1>Tasks</h1>
+    <div class = "task-section">
+        <input type = "text" id = "taskInput" placeholder="Enter task...">
+        <button id = "addTask">Add Task</button>
+    </div>
+
+    <!-- This allows me to load and run my javascript file script.js-->
+    <script src = "script.js"></script>
+ </body>
 </html>
