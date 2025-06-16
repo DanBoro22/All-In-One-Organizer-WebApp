@@ -1,0 +1,7 @@
+#taskList li {
+    max-width: 210px;
+    word-wrap: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+    margin-bottom: 8px;
+}
