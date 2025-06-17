@@ -23,7 +23,7 @@ Day #2 Date: June 15, 2025
 I assume that it is just creating a container to hold everything inside of it. Will research more to
 get a better understanding.
 
--I added a few visible components to my page and created a test function to give an action to the button when clicked, currently when you click the 'Add Task' button it changes the background colour to light blue. Test Laptop Push
+-I added a few visible components to my page and created a test function to give an action to the button when clicked, currently when you click the 'Add Task' button it changes the background colour to light blue. 
 
 
 
