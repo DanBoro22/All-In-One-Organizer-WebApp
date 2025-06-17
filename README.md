@@ -32,7 +32,7 @@ Day #3 Date: June 16, 2025
 
 -Created a working function pinTask in script.js which allows you to add a task to an unordered list, it gives you the option to "check mark" the task which lines through it to show its completed, or "x" it to remove the task completely
 
--Added some styling to the css to make the text of the tasks to break aprat into multiple lines.
+-Added some styling to the css to make the text of the tasks to break aprat into multiple lines..
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
