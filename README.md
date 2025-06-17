@@ -1,6 +1,8 @@
 # All-In-One-Organizer-WebApp
 This will track recurring finances and give the user the ability to organize tasks
 
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Day #1  Date: June 14, 2025
 
 
@@ -9,7 +11,7 @@ Day #1  Date: June 14, 2025
 -Created a devoloper branch to be used for testing and practiced commands to do so,
 now I have two branches (main, dev).
 
-
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Day #2 Date: June 15, 2025
 
 
@@ -25,7 +27,14 @@ get a better understanding.
 
 -I added a few visible components to my page and created a test function to give an action to the button when clicked, currently when you click the 'Add Task' button it changes the background colour to light blue. 
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Day #3 Date: June 16, 2025
 
+-Created a working function pinTask in script.js which allows you to add a task to an unordered list, it gives you the option to "check mark" the task which lines through it to show its completed, or "x" it to remove the task completely
+
+-Added some styling to the css to make the text of the tasks to break aprat into multiple lines.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
