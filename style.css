@@ -1,7 +1,36 @@
-#taskList li {
-    max-width: 210px;
-    word-wrap: break-word;
-    white-space: normal;
-    overflow-wrap: break-word;
-    margin-bottom: 8px;
+.task-wrapper {
+    max-width: 500px;
+    margin-left: 20px;
+}
+
+#taskList {
+    padding: 0;
+    list-style-position: inside;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.task-item span {
+    flex: 3;
+    word-break: break-word;
+}
+
+.task-item small {
+    flex: 2;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.button-group {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
 }
