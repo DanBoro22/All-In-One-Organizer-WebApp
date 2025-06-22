@@ -32,10 +32,21 @@ Day #3 Date: June 16, 2025
 
 -Created a working function pinTask in script.js which allows you to add a task to an unordered list, it gives you the option to "check mark" the task which lines through it to show its completed, or "x" it to remove the task completely
 
--Added some styling to the css to make the text of the tasks to break aprat into multiple lines...
+-Added some styling to the css to make the text of the tasks to break apart into multiple lines..
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+Day #4 Date: June 20, 2025
 
+-Reformatted index.html to handle dates for tasks, add consolidated these tasks into a class called task-wrapper
 
+-Wanted a way to uncomplete a task after it was completed, figured out this issue and it now works as intended.
+
+-Added a bunch of styling to the css to make the app more visually pleasing, mainly getting everything into 3 columns with the matching spacing so that it looks clean.
+
+-Next step will be to implement a calendar to add tasks with a date to a visual calendar
+
+-After adding the calendar I will add another column to allow for finacial tracking, mainly recurring payments.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
