@@ -1,103 +1,108 @@
+// Function that handles the process of adding a task when the user clicks "Add Task"
 function pinTask() {
-    const input = document.getElementById('taskInput'); //Creating constant variable 'input' which is getting what is held in the taskInput textbox element
-    const text = input.value.trim(); // This is trimming spaces on the 'input'
-    const date = document.getElementById('taskDate').value;
+    const input = document.getElementById('taskInput'); // Get the task input field
+    const text = input.value.trim(); // Trim whitespace from the input
+    const date = document.getElementById('taskDate').value; // Get the date input value
 
-    // As long as the textBox aka 'taskInput' is not empty then it runs
+    // If task input is not empty, proceed to add the task
     if (text !== '') {
-        addTaskToDOM(text, date);
-        saveTasks();
-        input.value = "";
-        document.getElementById('taskDate').value = "";
+        addTaskToDOM(text, date);  // Add task visually to the list
+        saveTasks();               // Save updated task list to localStorage
+        input.value = "";          // Clear task input field
+        document.getElementById('taskDate').value = ""; // Clear date input field
     }
 }
 
+// Gathers current tasks displayed in the DOM and returns them as an array of objects
 function getTasks() {
     const tasks = [];
     document.querySelectorAll('.task-item').forEach(item => {
-        const text = item.querySelector('span').textContent;
-        const date = item.querySelector('small').textContent.replace('Due: ', '');
-        const completed = item.style.textDecoration === 'line-through';
-        tasks.push({text, date, completed});
+        const text = item.querySelector('span').textContent; // Task text
+        const date = item.querySelector('small').textContent.replace('Due: ', ''); // Extract date string
+        const completed = item.style.textDecoration === 'line-through'; // Check if task is marked complete
+        tasks.push({ text, date, completed }); // Add to tasks array
     });
     return tasks;
 }
 
+// Save all tasks (from the DOM) to localStorage as a JSON string
 function saveTasks() {
-    const tasks = getTasks();
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    const tasks = getTasks(); // Get current tasks
+    localStorage.setItem('tasks', JSON.stringify(tasks)); // Save to localStorage
 }
 
+// Load tasks from localStorage and return them as an array
 function loadTasks() {
     const saved = localStorage.getItem('tasks');
-    return saved ? JSON.parse(saved) : [];
+    return saved ? JSON.parse(saved) : []; // If tasks exist, parse and return them, otherwise return empty array
 }
 
+// Add a new task item to the DOM
 function addTaskToDOM(text, date, completed = false) {
-    
-        const item = document.createElement('li'); // Makes a list item (but not displayed on screen)
-        item.className = 'task-item'; 
+    const item = document.createElement('li'); // Create <li> element
+    item.className = 'task-item';              // Set CSS class
 
-        // Gets the text from the text box
-        const taskText = document.createElement('span');
-        taskText.textContent = text;
+    // Create span for task text
+    const taskText = document.createElement('span');
+    taskText.textContent = text;
 
-        // This is used to obtain the date selected next to the 'add task' button
-        // it will use the date selected and put it next to the add task
-        const taskDate = document.createElement('small');
-        taskDate.textContent = `Due: ${date || 'No Date'}`;
+    // Create small element to display due date
+    const taskDate = document.createElement('small');
+    taskDate.textContent = `Due: ${date || 'No Date'}`; // Default to "No Date" if not provided
 
-        //Adding a container for completed and remove tasks
-        const buttonContainer = document.createElement('div');
-        buttonContainer.className = 'button-group'
+    // Create container div to hold the buttons
+    const buttonContainer = document.createElement('div');
+    buttonContainer.className = 'button-group';
 
-        //Adding a task compeleted button
-        const taskCompleteBtn = document.createElement('button');
-        taskCompleteBtn.textContent = '✔';
-        
-        // Creating a delete button next to the task
-        const deleteBtn = document.createElement('button');
-        deleteBtn.textContent = 'X';
+    // Create 'Complete' button (✔)
+    const taskCompleteBtn = document.createElement('button');
+    taskCompleteBtn.textContent = '✔';
 
-        if (completed) {
-            item.style.textDecoration = 'line-through';
-        }
+    // Create 'Delete' button (X)
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'X';
 
-        // When the checkmark button is clicked it will line through the task to show it is completed
-        taskCompleteBtn.addEventListener('click', () => {
-            item.style.textDecoration = 
-                item.style.textDecoration === 'line-through' ? 'none' : 'line-through';
-            saveTasks();
-        });
-
-        //Adding the click event to allow removal of task
-        deleteBtn.addEventListener('click', () => {
-            item.remove();
-            saveTasks();
-        });
-
-        // Adding the buttons into the button container
-        buttonContainer.appendChild(taskCompleteBtn);
-        buttonContainer.appendChild(deleteBtn);
-
-        // Adding the buttons to the list item and the date
-        item.appendChild(taskDate);
-        item.appendChild(taskText);
-        item.appendChild(buttonContainer);
-
-        document.getElementById('taskList').appendChild(item); // Now it adds the item to the ul 'taskList'
-        
+    // If task is marked as completed, show it with line-through
+    if (completed) {
+        item.style.textDecoration = 'line-through';
     }
 
+    // Toggle task completion when ✔ button is clicked
+    taskCompleteBtn.addEventListener('click', () => {
+        item.style.textDecoration =
+            item.style.textDecoration === 'line-through' ? 'none' : 'line-through';
+        saveTasks(); // Save updated state
+    });
 
+    // Remove task from DOM when X button is clicked
+    deleteBtn.addEventListener('click', () => {
+        item.remove();  // Remove task from DOM
+        saveTasks();    // Save updated list
+    });
+
+    // Add both buttons to the container
+    buttonContainer.appendChild(taskCompleteBtn);
+    buttonContainer.appendChild(deleteBtn);
+
+    // Add date, text, and buttons to the <li> item
+    item.appendChild(taskDate);
+    item.appendChild(taskText);
+    item.appendChild(buttonContainer);
+
+    // Append the completed task item to the task list in the DOM
+    document.getElementById('taskList').appendChild(item);
+}
+
+// When the page loads, restore any saved tasks from localStorage
 document.addEventListener("DOMContentLoaded", () => {
-    const savedTasks = loadTasks();
+    const savedTasks = loadTasks(); // Get saved tasks
     savedTasks.forEach(task => {
-        addTaskToDOM(task.text, task.date, task.completed);
+        addTaskToDOM(task.text, task.date, task.completed); // Re-render each task
     });
 });
 
-document.getElementById('addTask').addEventListener('click', pinTask); //When the 'addTask' button is clicked it runs the pinTask function
+// Add event listener to the "Add Task" button to trigger the pinTask function
+document.getElementById('addTask').addEventListener('click', pinTask);
 
 
 
