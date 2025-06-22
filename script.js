@@ -1,3 +1,5 @@
+let calendar; // Will hold the calendar instance
+
 // Function that handles the process of adding a task when the user clicks "Add Task"
 function pinTask() {
     const input = document.getElementById('taskInput'); // Get the task input field
@@ -7,7 +9,15 @@ function pinTask() {
     // If task input is not empty, proceed to add the task
     if (text !== '') {
         addTaskToDOM(text, date);  // Add task visually to the list
-        saveTasks();               // Save updated task list to localStorage
+        saveTasks(); // Save updated task list to localStorage
+
+        if (date && calendar) {
+            calendar.addEvent({
+                title: text,
+                start: date,
+            });
+        }
+
         input.value = "";          // Clear task input field
         document.getElementById('taskDate').value = ""; // Clear date input field
     }
@@ -96,9 +106,24 @@ function addTaskToDOM(text, date, completed = false) {
 // When the page loads, restore any saved tasks from localStorage
 document.addEventListener("DOMContentLoaded", () => {
     const savedTasks = loadTasks(); // Get saved tasks
+
     savedTasks.forEach(task => {
         addTaskToDOM(task.text, task.date, task.completed); // Re-render each task
     });
+
+    //Initializing calendar
+    const calendarTasks = document.getElementById('calendar');
+    calendar = new window.FullCalendar.Calendar(calendarTasks, {
+    initialView: 'dayGridMonth',
+    events: savedTasks
+        .filter(task => task.date)
+        .map(task => ({
+            title: task.text,
+            start: task.date,
+        }))
+});
+
+calendar.render();
 });
 
 // Add event listener to the "Add Task" button to trigger the pinTask function

@@ -15,8 +15,11 @@
     <!-- This is the tab at the top of the page-->
     <title>Organizer App</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet" />
+
     <!-- This is establishing a "relationship" aka "rel" between the HTML file and the linked file,
      which in this case is a stylesheet (the CSS file) -->
+     
      <link rel="stylesheet" href="style.css">
 
 </head>
@@ -32,6 +35,8 @@
             <ul id = "taskList"></ul>
         </div>
     </div>
+    <div id = "calendar"></div>
+     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
 
     <!-- This allows me to load and run my javascript file script.js-->
     <script src = "script.js"></script>

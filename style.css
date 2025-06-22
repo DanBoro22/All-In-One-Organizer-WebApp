@@ -34,3 +34,8 @@
   justify-content: flex-end;
   gap: 4px;
 }
+
+#calendar {
+  max-width: 900px;
+  margin: 40px auto;
+}
