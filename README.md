@@ -50,3 +50,19 @@ Day #4 Date: June 20, 2025
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+Day #5 Date: June 22, 2025
+
+-Added a calendar, using a link within my index.html called 'fullCalendar' had to edit some functions to get it to work
+
+-ISSUE that I had was getting the calendar to appear. The issue at first was within my index.html and script.js. In my js file under the comment 'Initialize Calendar' I was trying to pass my cons calendarTasks with '' and thes quotations were incorrect and I needed to pass it directly. I also needed to change the version for the script I was using in my index.html. This was resolved and it is working correctly
+
+-Now you have a visual calendar which you can see your tasks in a clearer view. If the task has no date it is not shown(will figure something out for this)
+
+-The calendar is centered but I will be adding some styling to it.
+
+-Next steps are to finish decorations and visuals for calendar. Then after that is to incorporate recurring payments
+
+*NO CURRENT ISSUES*
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
