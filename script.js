@@ -8,14 +8,18 @@ function pinTask() {
 
     // If task input is not empty, proceed to add the task
     if (text !== '') {
-        addTaskToDOM(text, date);  // Add task visually to the list
-        saveTasks(); // Save updated task list to localStorage
+        const item = addTaskToDOM(text, date);
+        saveTasks();
 
         if (date && calendar) {
-            calendar.addEvent({
+            const eventID = `${text}-${date}`; // Creates a unique event ID       
+            const newEvent = calendar.addEvent({
+                id: eventID,
                 title: text,
                 start: date,
+                classNames:[],
             });
+            item.dataset.eventID = eventID;
         }
 
         input.value = "";          // Clear task input field
@@ -79,9 +83,17 @@ function addTaskToDOM(text, date, completed = false) {
 
     // Toggle task completion when ✔ button is clicked
     taskCompleteBtn.addEventListener('click', () => {
-        item.style.textDecoration =
-            item.style.textDecoration === 'line-through' ? 'none' : 'line-through';
-        saveTasks(); // Save updated state
+        const nowCompleted = item.style.textDecoration !== 'line-through';
+        item.style.textDecoration = nowCompleted ? 'line-through' : 'none';
+        saveTasks();
+
+        const eventID = item.dataset.eventID;
+        if (eventID && calendar) {
+            const event = calendar.getEventById(eventID);
+            if (event) {
+                event.setProp('classNames', nowCompleted ? ['completed-task'] : []);
+            }
+        }
     });
 
     // Remove task from DOM when X button is clicked
@@ -101,6 +113,12 @@ function addTaskToDOM(text, date, completed = false) {
 
     // Append the completed task item to the task list in the DOM
     document.getElementById('taskList').appendChild(item);
+
+    if (date) {
+        item.dataset.eventID = `${text}-${date}`;
+    }
+
+    return item;
 }
 
 // When the page loads, restore any saved tasks from localStorage
@@ -118,8 +136,10 @@ document.addEventListener("DOMContentLoaded", () => {
     events: savedTasks
         .filter(task => task.date)
         .map(task => ({
+            id: `${task.text}-${task.date}`,
             title: task.text,
             start: task.date,
+            classNames: task.completed ? ['completed-task'] : [],
         }))
 });
 
@@ -128,6 +148,8 @@ calendar.render();
 
 // Add event listener to the "Add Task" button to trigger the pinTask function
 document.getElementById('addTask').addEventListener('click', pinTask);
+
+
 
 
 
