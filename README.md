@@ -66,3 +66,20 @@ Day #5 Date: June 22, 2025
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+Day #6 Date: June 24, 2025
+
+-Reformatted divs for calendar and tasks, re positioned calendar to clean up UI.
+
+-Main feature added was the feature to be able to line through a task on the task list and to also reflect this on the calendar.
+
+-Experienced issue trying to get the task to update in real time, originally it was only updating the calendar when i reloaded the page. Now it works correctly. Issue resolved
+
+-Next steps are add a few more features to the calendar like a place for tasks with no date and I want to be able to select a task from the calendar to show more deatiled information on the task
+
+-Next step as well is to incorporate another conatiner to reflect recurring expenses
+
+-ALSO I'm not sure how to implement this but I want a way to send text message reminders of when a payment is coming up
+
+*NO CURRENT ISSUES*
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
