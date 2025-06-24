@@ -35,7 +35,12 @@
   gap: 4px;
 }
 
-#calendar {
+.calendar-section {
   max-width: 900px;
   margin: 40px auto;
+}
+
+.calendar-section h2 {
+  margin-top: 10px;
+  text-align: right;
 }
