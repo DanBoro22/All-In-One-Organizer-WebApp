@@ -26,8 +26,10 @@
 
 <!-- Main content area which is visible to the user -->
  <body>
-    <h1>Tasks</h1>
+    <div class = "main-layout">
+    
     <div class = "task-section">
+        <h1>Tasks</h1>
         <div class = "task-wrapper">
             <input type = "text" id = "taskInput" placeholder="Enter task...">
             <input type = "date" id = "taskDate">
@@ -35,8 +37,13 @@
             <ul id = "taskList"></ul>
         </div>
     </div>
-    <div id = "calendar"></div>
-     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+    <div class = "calendar-section">
+        <h2> Calendar</h2>
+        <div id = "calendar"></div>
+    </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
 
     <!-- This allows me to load and run my javascript file script.js-->
     <script src = "script.js"></script>

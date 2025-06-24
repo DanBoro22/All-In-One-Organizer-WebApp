@@ -1,3 +1,15 @@
+.main-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 20px;
+}
+
+.task-section {
+  flex: 1;
+}
+
 .task-wrapper {
     max-width: 500px;
     margin-left: 20px;
@@ -35,7 +47,27 @@
   gap: 4px;
 }
 
+.calendar-section {
+  flex: 1;
+}
+
+.calendar-section h2 {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+
 #calendar {
   max-width: 900px;
-  margin: 40px auto;
+  margin: 0px auto;
+}
+
+.fc-event.completed-task .fc-event-title {
+  text-decoration: line-through;
+  color: #444 !important;
+}
+
+
+.fc-event.completed-task {
+  background-color: #ccc !important;
 }
