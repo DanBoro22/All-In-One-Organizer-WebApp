@@ -83,3 +83,23 @@ Day #6 Date: June 24, 2025
 *NO CURRENT ISSUES*
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Day #7 Date: June 27, 2025
+
+-Fixed sizing issues with too many tasks in task list and tasks on the same day on the calendar
+
+-Added buttons you can click to sort your task list by due date, no dates, and all tasks
+
+-Fixed issue with deletting a task not rendering properly
+
+-Currently in a good working state 
+
+*NEXT STEPS*
+
+-I want to add a recurring finances tab
+
+-I want to fix the styling
+
+*NO CURRENT ISSUES*
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
