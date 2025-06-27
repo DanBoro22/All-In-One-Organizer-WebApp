@@ -98,6 +98,16 @@ function addTaskToDOM(text, date, completed = false) {
 
     // Remove task from DOM when X button is clicked
     deleteBtn.addEventListener('click', () => {
+        const eventID = item.dataset.eventID;
+
+        if (eventID && calendar) {
+            const event = calendar.getEventById(eventID);
+            if (event) {
+                event.remove();
+            }
+        }
+        
+        
         item.remove();  // Remove task from DOM
         saveTasks();    // Save updated list
     });
@@ -133,6 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const calendarTasks = document.getElementById('calendar');
     calendar = new window.FullCalendar.Calendar(calendarTasks, {
     initialView: 'dayGridMonth',
+    dayMaxEvents: true,
     events: savedTasks
         .filter(task => task.date)
         .map(task => ({
@@ -144,7 +155,29 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 calendar.render();
+
+    document.getElementById('showAllTasks').addEventListener('click', () => {
+        document.querySelectorAll('.task-item').forEach(item => {
+            item.style.display = '';
+        });
+    });
+
+    document.getElementById('showDatedTasks').addEventListener('click', () => {
+        document.querySelectorAll('.task-item').forEach(item => {
+            const hasDate = item.querySelector('small').textContent !== 'Due: No Date';
+            item.style.display = hasDate ? '' : 'none';
+        });
+    });
+
+    document.getElementById('showUndatedTasks').addEventListener('click', () => {
+        document.querySelectorAll('.task-item').forEach(item => {
+            const hasDate = item.querySelector('small').textContent !== 'Due: No Date';
+            item.style.display = hasDate ? 'none' : '';
+        });
+    });
 });
+
+
 
 // Add event listener to the "Add Task" button to trigger the pinTask function
 document.getElementById('addTask').addEventListener('click', pinTask);

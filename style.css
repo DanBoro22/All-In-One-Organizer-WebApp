@@ -18,6 +18,8 @@
 #taskList {
     padding: 0;
     list-style-position: inside;
+    max-height: 660px;
+    overflow-y: auto;
 }
 
 .task-item {
@@ -68,4 +70,15 @@
 
 .fc-event.completed-task {
   background-color: #ccc !important;
+}
+
+#taskFilterButtons {
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+#taskFilterButtons button {
+    padding: 5px 10px;
+    cursor: pointer;
 }
