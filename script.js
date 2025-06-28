@@ -156,12 +156,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 calendar.render();
 
+    // Button to show all tasks
     document.getElementById('showAllTasks').addEventListener('click', () => {
         document.querySelectorAll('.task-item').forEach(item => {
             item.style.display = '';
         });
     });
 
+    // Button to show tasks with a date
     document.getElementById('showDatedTasks').addEventListener('click', () => {
         document.querySelectorAll('.task-item').forEach(item => {
             const hasDate = item.querySelector('small').textContent !== 'Due: No Date';
@@ -169,6 +171,7 @@ calendar.render();
         });
     });
 
+    // Button to show tasks without a date
     document.getElementById('showUndatedTasks').addEventListener('click', () => {
         document.querySelectorAll('.task-item').forEach(item => {
             const hasDate = item.querySelector('small').textContent !== 'Due: No Date';

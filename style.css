@@ -73,6 +73,7 @@
 }
 
 #taskFilterButtons {
+    margin-top: 10px;
     margin-bottom: 10px;
     display: flex;
     gap: 10px;
@@ -81,4 +82,16 @@
 #taskFilterButtons button {
     padding: 5px 10px;
     cursor: pointer;
+}
+
+#taskFilterContainer {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#sortLabel {
+    font-weight: bold;
 }
