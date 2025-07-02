@@ -18,7 +18,7 @@
 #taskList {
     padding: 0;
     list-style-position: inside;
-    max-height: 660px;
+    max-height: 400px;
     overflow-y: auto;
 }
 
@@ -50,13 +50,14 @@
 }
 
 .calendar-section {
-  flex: 1;
+  position: fixed;
+  bottom: fixed; /* distance from bottom */
+  left: 100px;   /* distance from left */
+  margin: 20px;    /* reset margin for fixed positioning */
+  background: white; /* optional: background for readability */
+  padding: 10px; /* optional: spacing around calendar */
 }
 
-.calendar-section h2 {
-  text-align: right;
-  margin-bottom: 10px;
-}
 #calendar {
   max-width: 900px;
   margin: 0px auto;
@@ -94,4 +95,19 @@
 
 #sortLabel {
     font-weight: bold;
+}
+
+.itinerary-section {
+  flex: 1;
+  padding: 20px;
+}
+
+#hourlyList {
+  list-style: none;
+  padding: 0;
+}
+
+#hourlyList li {
+  padding: 6px;
+  border-bottom: 1px solid #ccc;
 }

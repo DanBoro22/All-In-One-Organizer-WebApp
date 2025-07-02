@@ -15,7 +15,7 @@
     <!-- This is the tab at the top of the page-->
     <title>Organizer App</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
     <!-- This is establishing a "relationship" aka "rel" between the HTML file and the linked file,
      which in this case is a stylesheet (the CSS file) -->
@@ -29,10 +29,11 @@
     <div class = "main-layout">
     
     <div class = "task-section">
-        <h1>Tasks</h1>
+        
         <div class = "task-wrapper">
             <input type = "text" id = "taskInput" placeholder="Enter task...">
             <input type = "date" id = "taskDate">
+            <input type = "time" id = taskTime>
             <button id = "addTask">Add Task</button>
 
             <div id='taskFilterContainer'>
@@ -45,16 +46,21 @@
             </div>
 
             <ul id = "taskList"></ul>
-
+            <div class = "calendar-section">      
+            <div id="calendar"></div>
+        </div>
         </div>
     </div>
-    <div class = "calendar-section">
-        <h2> Calendar</h2>
-        <div id = "calendar"></div>
-    </div>
+
+    <div class="itinerary-section">
+        <h2 id="selectedDate"></h2>
+        <ul id="hourlyList"></ul>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+    
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
     <!-- This allows me to load and run my javascript file script.js-->
     <script src = "script.js"></script>
