@@ -103,3 +103,19 @@ Day #7 Date: June 27, 2025
 *NO CURRENT ISSUES*
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Day #8 Date: July 2, 2025
+
+-Ran into issues trying to implement the "sort by" buttons. This has been resolved
+
+-Wanted to change the big calendar to a small calendar, and when trying to do this, I encountered many bugs. So I decided to back track and restart from a good point
+
+-Now the small calendar is working, you can click on a day and see the whole days itinerary, also the sort by buttons work
+
+-You can also give a task a date and time.
+
+-So far so good, I want to clean up the time because right now I'm only displaying the hours and not the minutes on the days itinerary
+
+*NO CURRENT ISSUES*
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

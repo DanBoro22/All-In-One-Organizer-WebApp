@@ -128,9 +128,9 @@ function updateCalendarView(dateStr, instance) {
   // — 3. Build the hourly itinerary
   const allTasks = getTasks();  
   // pick only tasks on dateStr **with** times (i.e. those containing "T")
-  const timed    = allTasks.filter(t => t.date.startsWith(dateStr) && t.date.includes("T"));
-  const ul       = document.getElementById("hourlyList");
-  ul.innerHTML   = "";
+  const timed = allTasks.filter(t => t.date.startsWith(dateStr) && t.date.includes("T"));
+  const ul = document.getElementById("hourlyList");
+  ul.innerHTML = "";
 
   for (let h = 0; h < 24; h++) {
     const label = `${h.toString().padStart(2, "0")}:00`;
@@ -194,8 +194,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById("selectedDate").textContent = flatpickr.formatDate(today, "F j, Y");
     updateCalendarView(isoToday, { selectedDates: [today], formatDate: flatpickr.formatDate });
-
-
 
 
 
